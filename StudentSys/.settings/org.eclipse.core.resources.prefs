@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebRoot/main.jsp=UTF-8
+encoding//src/com/jzfactory/jd/student/dao/ClaszDaoImpl.java=UTF-8
+encoding//src/com/jzfactory/jd/student/dao/StudentDao.java=UTF-8
+encoding//src/com/jzfactory/jd/student/dao/StudentDaoImpl.java=UTF-8
+encoding//src/com/jzfactory/jd/student/service/StudentService.java=UTF-8
+encoding//src/com/jzfactory/jd/student/service/StudentServiceImpl.java=UTF-8
+encoding//src/com/jzfactory/jd/student/servlet/FindAllServlet.java=UTF-8
+encoding//src/com/jzfactory/jd/student/servlet/LoginServlet.java=UTF-8
+encoding//src/com/jzfactory/jd/student/servlet/MainServlet.java=UTF-8
+encoding//src/com/jzfactory/jd/student/util/Pagination.java=GBK
+encoding/<project>=UTF-8

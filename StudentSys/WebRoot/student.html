@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生管理系统</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+	<script src="bootstrap-3.3.5-dist/js/jquery.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="sweetalert/dist/sweetalert.min.js"></script> <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
+    <script type="text/javascript" >
+    	$(document).ready(function () {
+           $('tbody tr').click(function (e) {
+               e.preventDefault();
+              
+               $('tbody tr').removeClass('active');
+               $(this).addClass('active');
+           });
+
+           $('#btn_cls_del').click(function(e){
+               swal({   title: "删除班级",   text: "你确定删除 一年一班 ？",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "是的, 删除它!", cancelButtonText:"取消" , closeOnConfirm: false }, function(){   swal("删除!", "一年一班删除成功", "success"); });
+           }); 
+
+          $('#btn_std_del').click(function(e){
+               swal({   title: "删除学生",   text: "你确定删除 张三 ？",   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "是的, 删除它!", cancelButtonText:"取消" , closeOnConfirm: false }, function(){   swal("删除!", "张三删除成功", "success"); });
+          });
+
+        });
+
+    </script>
+</head>
+<body>
+	<nav class="navbar navbar-default" style="height: 60px">
+      <div class="container-fluid">
+         <div class="navbar-header">
+           <a class="navbar-brand" href="#">
+             <img alt="Brand" src="img/logo.png" height="35px" width="200px">
+           </a>
+         </div>
+         <button type="button" class="btn btn-warning btn-xs navbar-right" style="margin-top: 20px; margin-right: 20px;margin-left: 20px">退出</button>
+          <h5 class="navbar-text navbar-right" style="margin-top: 25px"><strong>你好，宋文鹏</strong></h5>
+           <button type="button" class="btn btn-info  btn-sm navbar-right" data-toggle="modal" data-target="#classModal" style="margin-top: 18px;margin-right: 50px;">添加班级</button>
+           <button id="btn_cls_edit" type="button" class="btn btn-info  btn-sm navbar-right" data-toggle="modal" data-target="#classModal" style="margin-top: 18px;margin-right: 20px;margin-left: 20px;">编辑班级</button>
+            <button id="btn_cls_del" type="button" class="btn btn-info  btn-sm navbar-right" style="margin-top: 18px;">删除班级</button> 
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+         <div class="container col-md-3">
+         	<div class="panel panel-default" >
+                   <div class="panel-body">
+                     <div class="list-group">
+                       <a href="#" class="list-group-item">一年一班</a>
+                       <a href="#" class="list-group-item">二年一班</a>
+                       <a href="#" class="list-group-item">三年二班</a>
+                       <a href="#" class="list-group-item">四年五班</a>
+                       <a href="#" class="list-group-item">五年三班</a>
+                      </div>
+                   </div>
+             </div>
+         </div>
+         <div class="container col-md-9">
+         	
+         	  <div class="panel panel-default">
+                 <!-- Default panel contents -->
+                  <div class="panel-heading">
+                  	 <div class="row">
+                  		<div class="col-md-2"><h4><strong>一年一班</strong></h4></div>
+                  		<div class="col-md-8">
+                  			<h4>班级总共：50人，其中男生：31人，女生：19人</h4>
+                  		</div>
+                  		<div class="col-md-2">
+                  			<h4>班主任：<strong>桃李</strong></h4>
+                  		</div>
+                  	  </div>	 
+                  	</div>
+                  	<div class="panel-body">
+                  	   <div class="col-md-5">
+                  	   	  <form class="form-inline">
+                           <div class="form-group">
+                            <label for="exampleInputName2">姓名</label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="输入姓名">
+                           </div>
+                           <button type="submit" class="btn btn-default">查询</button>
+                         </form>
+                  	   </div>
+                       <div class="col-md-7">
+                       	   <div class="btn-group pull-right" role="group">
+                             <div class="btn-group" role="group">
+                               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#studentModal">添加</button>
+                             </div>
+                             <div class="btn-group" role="group">
+                               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#studentModal">修改</button>
+                             </div>
+                             <div id="btn_std_del" class="btn-group" role="group">
+                               <button type="button" class="btn btn-default">删除</button>
+                              </div>
+                            </div>
+                       </div>
+                    </div>
+                    <!-- Table -->
+                   <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>学号</th>
+                          <th>姓名</th>
+                          <th>性别</th>
+                          <th>出生日期</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                         <tr class="active">
+                           <th scope="row">1</th>
+                           <td>201608310001</td>
+                           <td>张三</td>
+                           <td>男</td>
+                           <td>1993年04月23日</td>
+                         </tr>
+                         <tr>
+                           <th scope="row">2</th>
+                           <td>201608310001</td>
+                           <td>张三</td>
+                           <td>男</td>
+                           <td>1993年04月23日</td>
+                         </tr>
+                         <tr>
+                           <th scope="row">3</th>
+                           <td>201608310001</td>
+                           <td>张三</td>
+                           <td>男</td>
+                           <td>1993年04月23日</td>
+                         </tr>
+                      </tbody>
+                   </table>
+                  </div>
+                  
+              </div>
+         </div>
+      </div> 
+   </div>
+
+   <!--班级添加修改弹出框-->
+   <div class="modal fade" id="classModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">添加班级信息</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">班级名称:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">班主任名称:</label>
+            <input type="text" class="form-control" id="message-text"></input>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
+   <!--学生添加修改弹出框-->
+   <div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">添加学生信息</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">学生编号:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">学生姓名:</label>
+            <input type="text" class="form-control" id="message-text"></input>
+          </div>
+           <div class="form-group">
+            <label for="sex-text" class="control-label">学生性别:</label>
+            <div id="sex-text">
+            	<label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+                </label>
+            </div>
+            
+          </div> 
+            <div class="form-group">
+            <label for="birth-text" class="control-label">出生日期:</label>
+            <input type="text" class="form-control" id="birth-text"></input>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
